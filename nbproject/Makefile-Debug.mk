@@ -35,6 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/1348093554/Counter.o \
+	${OBJECTDIR}/_ext/1348093554/SampleListener.o \
 	${OBJECTDIR}/main.o
 
 
@@ -52,7 +54,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-L/home/adhish/Documents/leap/LeapDeveloperKit_2.3.1+31549_linux/LeapSDK/lib/x64 -lLeap -dynamic
+LDLIBSOPTIONS=-L/home/adhish/Documents/leap/LeapDeveloperKit_2.3.1+31549_linux/LeapSDK/lib/x64/ -lLeap -dynamic
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -62,10 +64,20 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/remotecontrolnumber: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/remotecontrolnumber ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/_ext/1348093554/Counter.o: /home/adhish/Documents/leap/Sources/RemoteControlNumber/Counter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1348093554
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/home/adhish/Documents/leap/LeapDeveloperKit_2.3.1+31549_linux/LeapSDK/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1348093554/Counter.o /home/adhish/Documents/leap/Sources/RemoteControlNumber/Counter.cpp
+
+${OBJECTDIR}/_ext/1348093554/SampleListener.o: /home/adhish/Documents/leap/Sources/RemoteControlNumber/SampleListener.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1348093554
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/home/adhish/Documents/leap/LeapDeveloperKit_2.3.1+31549_linux/LeapSDK/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1348093554/SampleListener.o /home/adhish/Documents/leap/Sources/RemoteControlNumber/SampleListener.cpp
+
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -include /home/adhish/Documents/leap/LeapDeveloperKit_2.3.1+31549_linux/LeapSDK/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
+	$(COMPILE.cc) -g -I/home/adhish/Documents/leap/LeapDeveloperKit_2.3.1+31549_linux/LeapSDK/include -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
 
 # Subprojects
 .build-subprojects:

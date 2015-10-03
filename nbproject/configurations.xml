@@ -4,6 +4,8 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>/home/adhish/Documents/leap/Sources/RemoteControlNumber/Counter.h</itemPath>
+      <itemPath>/home/adhish/Documents/leap/Sources/RemoteControlNumber/SampleListener.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -12,6 +14,8 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>/home/adhish/Documents/leap/Sources/RemoteControlNumber/Counter.cpp</itemPath>
+      <itemPath>/home/adhish/Documents/leap/Sources/RemoteControlNumber/SampleListener.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
@@ -36,13 +40,13 @@
       </toolsSet>
       <compileType>
         <ccTool>
-          <incFile>
+          <incDir>
             <pElem>/home/adhish/Documents/leap/LeapDeveloperKit_2.3.1+31549_linux/LeapSDK/include</pElem>
-          </incFile>
+          </incDir>
         </ccTool>
         <linkerTool>
           <linkerAddLib>
-            <pElem>/home/adhish/Documents/leap/LeapDeveloperKit_2.3.1+31549_linux/LeapSDK/lib/x64</pElem>
+            <pElem>/home/adhish/Documents/leap/LeapDeveloperKit_2.3.1+31549_linux/LeapSDK/lib/x64/</pElem>
           </linkerAddLib>
           <linkerLibItems>
             <linkerLibLibItem>Leap</linkerLibLibItem>
@@ -50,6 +54,26 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
+      <item path="/home/adhish/Documents/leap/Sources/RemoteControlNumber/Counter.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/adhish/Documents/leap/Sources/RemoteControlNumber/Counter.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/adhish/Documents/leap/Sources/RemoteControlNumber/SampleListener.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/adhish/Documents/leap/Sources/RemoteControlNumber/SampleListener.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>
@@ -73,6 +97,26 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="/home/adhish/Documents/leap/Sources/RemoteControlNumber/Counter.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/adhish/Documents/leap/Sources/RemoteControlNumber/Counter.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="/home/adhish/Documents/leap/Sources/RemoteControlNumber/SampleListener.cpp"
+            ex="false"
+            tool="1"
+            flavor2="0">
+      </item>
+      <item path="/home/adhish/Documents/leap/Sources/RemoteControlNumber/SampleListener.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
     </conf>

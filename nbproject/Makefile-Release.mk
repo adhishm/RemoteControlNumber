@@ -35,6 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/_ext/1348093554/Counter.o \
+	${OBJECTDIR}/_ext/1348093554/SampleListener.o \
 	${OBJECTDIR}/main.o
 
 
@@ -61,6 +63,16 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/remotecontrolnumber: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/remotecontrolnumber ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/_ext/1348093554/Counter.o: /home/adhish/Documents/leap/Sources/RemoteControlNumber/Counter.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1348093554
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1348093554/Counter.o /home/adhish/Documents/leap/Sources/RemoteControlNumber/Counter.cpp
+
+${OBJECTDIR}/_ext/1348093554/SampleListener.o: /home/adhish/Documents/leap/Sources/RemoteControlNumber/SampleListener.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1348093554
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1348093554/SampleListener.o /home/adhish/Documents/leap/Sources/RemoteControlNumber/SampleListener.cpp
 
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
