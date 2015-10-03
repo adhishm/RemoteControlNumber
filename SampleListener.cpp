@@ -88,14 +88,14 @@ void SampleListener::_analyzeCircle(const Gesture& g)
     {
         // Clockwise
         _counter->Increment();
-        _counter->ShowValue();
+        std::cout << _counter->GetValue() << "\tCircle clockwise." << std::endl;
         return;
     }
     else
     {
         // Counterclockwise
         _counter->Decrement();
-        _counter->ShowValue();
+        std::cout << _counter->GetValue() << "\tCircle counterclockwise." << std::endl;
         return;
     }
 }
@@ -118,7 +118,7 @@ void SampleListener::_analyzeKeyTap(const Gesture& g)
     {
         // Tapping downward
         _counter->Decrement();
-        _counter->ShowValue();
+        std::cout << _counter->GetValue() << "\tTap down." << std::endl;
         return;
     }
     
@@ -126,7 +126,7 @@ void SampleListener::_analyzeKeyTap(const Gesture& g)
     {
         // Tapping upward
         _counter->Increment();
-        _counter->ShowValue();
+        std::cout << _counter->GetValue() << "\tTap up." << std::endl;
         return;
     }
 }
@@ -140,7 +140,7 @@ void SampleListener::_analyzeScreenTap(const Gesture& g)
     if (v.z < 0.0)
     {
         _counter->Reset();
-        _counter->ShowValue();
+        std::cout << _counter->GetValue() << "\tScreen tap." << std::endl;
     }
 }
 
@@ -154,7 +154,7 @@ void SampleListener::_analyzeSwipe(const Gesture& g)
     {
         // Swiping left
         _counter->Decrement();
-        _counter->ShowValue();
+        std::cout << _counter->GetValue() << "\tSwipe left." << std::endl;
         return;
     }
     
@@ -162,7 +162,7 @@ void SampleListener::_analyzeSwipe(const Gesture& g)
     {
         // Swiping right
         _counter->Increment();
-        _counter->ShowValue();
+        std::cout << _counter->GetValue() << "\tSwipe right." << std::endl;
         return;
     }
 }
