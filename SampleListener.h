@@ -11,6 +11,10 @@
 #include "Leap.h"
 #include "Counter.h"
 
+#ifndef PI
+#define PI 3.141596
+#endif
+
 /**
  * @brief SampleListener class, child of Leap::Listener class
  */
@@ -32,6 +36,7 @@ namespace Leap
         void _analyzeKeyTap(const Leap::Gesture& g);
         void _analyzeScreenTap(const Leap::Gesture& g);
         void _analyzeSwipe(const Leap::Gesture& g);
+        bool _isClockwise(Leap::CircleGesture& c) const;
         Counter* _counter;
     };
 }

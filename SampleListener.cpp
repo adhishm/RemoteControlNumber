@@ -12,7 +12,7 @@ using namespace Leap;
 SampleListener::SampleListener()
     : Listener()
 {
-    _counter = new Counter();
+    _counter = Counter::New();
 }
 
 SampleListener::~SampleListener()
@@ -37,9 +37,6 @@ void SampleListener::onDisconnect(const Leap::Controller& controller)
 
 void SampleListener::onFrame(const Leap::Controller& controller)
 {
-    //std::cout << "Frame available" << std::endl;
-    //const Frame frame = controller.frame();
-    
     _analyzeGestures(controller.frame());
 }
 
@@ -85,27 +82,30 @@ void SampleListener::_analyzeGestures(const Frame& f)
 
 void SampleListener::_analyzeCircle(const Leap::Gesture& g)
 {
-    Leap::Pointable p = g.pointables().frontmost();
+    Leap::CircleGesture circle = g;
     
-    Leap::Vector v = p.direction();
-    
-    if (v.z < 0.0)
+    if (_isClockwise(circle))
     {
-        // Normal to circle points to the screen
         // Clockwise
         _counter->Increment();
         _counter->ShowValue();
         return;
     }
-    
-    if (v.z > 0.0)
+    else
     {
-        // Normal to circle points to the user
         // Counterclockwise
         _counter->Decrement();
         _counter->ShowValue();
         return;
     }
+}
+
+bool SampleListener::_isClockwise(Leap::CircleGesture& c) const
+{
+    Leap::Vector v_p = c.pointable().direction();
+    Leap::Vector c_n = c.normal();
+    
+    return (v_p.angleTo(c_n) <= (PI/2));
 }
 
 void SampleListener::_analyzeKeyTap(const Leap::Gesture& g)
@@ -133,8 +133,15 @@ void SampleListener::_analyzeKeyTap(const Leap::Gesture& g)
 
 void SampleListener::_analyzeScreenTap(const Leap::Gesture& g)
 {
-    _counter->Reset();
-    _counter->ShowValue();
+    Leap::Pointable p = g.pointables().frontmost();
+    
+    Leap::Vector v = p.direction();
+    
+    if (v.z < 0.0)
+    {
+        _counter->Reset();
+        _counter->ShowValue();
+    }
 }
 
 void SampleListener::_analyzeSwipe(const Leap::Gesture& g)

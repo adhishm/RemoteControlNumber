@@ -24,13 +24,15 @@ int main(int argc, char** argv)
     
     Leap::SampleListener listener;
     controller->addListener(listener);
-    
+        
     std::cout << "Press enter to exit." << std::endl;
-    
     std::cin.get();
+    
     controller->removeListener(listener);
+    
     delete controller;
     controller = NULL;
+    
     return 0;
 }
 

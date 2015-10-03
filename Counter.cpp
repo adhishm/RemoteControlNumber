@@ -11,6 +11,11 @@ Counter::Counter() {
     _value = 0;
 }
 
+Counter::Counter(int v)
+{
+    _value = v;
+}
+
 Counter::Counter(const Counter& orig) {
     _value = orig.GetValue();
 }
