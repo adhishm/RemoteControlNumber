@@ -24,18 +24,18 @@ SampleListener::~SampleListener()
     }
 }
 
-void SampleListener::onConnect(const Leap::Controller& controller)
+void SampleListener::onConnect(const Controller& controller)
 {
     std::cout << "Controller connected" << std::endl;
 }
 
-void SampleListener::onDisconnect(const Leap::Controller& controller)
+void SampleListener::onDisconnect(const Controller& controller)
 {
     std::cout << "Controller disconnected" << std::endl;
 }
 
 
-void SampleListener::onFrame(const Leap::Controller& controller)
+void SampleListener::onFrame(const Controller& controller)
 {
     _analyzeGestures(controller.frame());
 }
@@ -52,25 +52,25 @@ void SampleListener::_displayFrameData(const Frame& f) const
 
 void SampleListener::_analyzeGestures(const Frame& f)
 {
-    Leap::GestureList gestures = f.gestures();
+    GestureList gestures = f.gestures();
     
     if (gestures.count() > 0)
     {
-        for (Leap::GestureList::const_iterator it = gestures.begin(); it != gestures.end(); ++it)
+        for (GestureList::const_iterator it = gestures.begin(); it != gestures.end(); ++it)
         {
-            Leap::Gesture g = *(it);
+            Gesture g = *(it);
             switch (g.type())
             {
-                case Leap::Gesture::TYPE_CIRCLE:
+                case Gesture::TYPE_CIRCLE:
                     _analyzeCircle(g);
                     break;
-                case Leap::Gesture::TYPE_KEY_TAP:
+                case Gesture::TYPE_KEY_TAP:
                     _analyzeKeyTap(g);
                     break;
-                case Leap::Gesture::TYPE_SCREEN_TAP:
+                case Gesture::TYPE_SCREEN_TAP:
                     _analyzeScreenTap(g);
                     break;
-                case Leap::Gesture::TYPE_SWIPE:
+                case Gesture::TYPE_SWIPE:
                     _analyzeSwipe(g);
                     break;
                 default:
@@ -80,9 +80,9 @@ void SampleListener::_analyzeGestures(const Frame& f)
     }
 }
 
-void SampleListener::_analyzeCircle(const Leap::Gesture& g)
+void SampleListener::_analyzeCircle(const Gesture& g)
 {
-    Leap::CircleGesture circle = g;
+    CircleGesture circle = g;
     
     if (_isClockwise(circle))
     {
@@ -100,19 +100,19 @@ void SampleListener::_analyzeCircle(const Leap::Gesture& g)
     }
 }
 
-bool SampleListener::_isClockwise(Leap::CircleGesture& c) const
+bool SampleListener::_isClockwise(CircleGesture& c) const
 {
-    Leap::Vector v_p = c.pointable().direction();
-    Leap::Vector c_n = c.normal();
+    Vector v_p = c.pointable().direction();
+    Vector c_n = c.normal();
     
     return (v_p.angleTo(c_n) <= (PI/2));
 }
 
-void SampleListener::_analyzeKeyTap(const Leap::Gesture& g)
+void SampleListener::_analyzeKeyTap(const Gesture& g)
 {
-    Leap::Pointable p = g.pointables().frontmost();
+    Pointable p = g.pointables().frontmost();
     
-    Leap::Vector v = p.direction();
+    Vector v = p.direction();
     
     if (v.y < 0.0)
     {
@@ -131,11 +131,11 @@ void SampleListener::_analyzeKeyTap(const Leap::Gesture& g)
     }
 }
 
-void SampleListener::_analyzeScreenTap(const Leap::Gesture& g)
+void SampleListener::_analyzeScreenTap(const Gesture& g)
 {
-    Leap::Pointable p = g.pointables().frontmost();
+    Pointable p = g.pointables().frontmost();
     
-    Leap::Vector v = p.direction();
+    Vector v = p.direction();
     
     if (v.z < 0.0)
     {
@@ -144,11 +144,11 @@ void SampleListener::_analyzeScreenTap(const Leap::Gesture& g)
     }
 }
 
-void SampleListener::_analyzeSwipe(const Leap::Gesture& g)
+void SampleListener::_analyzeSwipe(const Gesture& g)
 {
-    Leap::Pointable p = g.pointables().frontmost();
+    Pointable p = g.pointables().frontmost();
     
-    Leap::Vector v = p.direction();
+    Vector v = p.direction();
     
     if (v.x < 0.0)
     {

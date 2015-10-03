@@ -21,22 +21,22 @@
 namespace Leap
 {
     class SampleListener
-        : public Leap::Listener
+        : public Listener
     {
     public:
-        virtual void onConnect(const Leap::Controller& controller);
-        virtual void onFrame(const Leap::Controller& controller);
-        virtual void onDisconnect(const Leap::Controller& controller);
+        virtual void onConnect(const Controller& controller);
+        virtual void onFrame(const Controller& controller);
+        virtual void onDisconnect(const Controller& controller);
         SampleListener();
         virtual ~SampleListener();
     private:
         void _displayFrameData(const Frame& f) const;
         void _analyzeGestures(const Frame& f);
-        void _analyzeCircle(const Leap::Gesture& g);
-        void _analyzeKeyTap(const Leap::Gesture& g);
-        void _analyzeScreenTap(const Leap::Gesture& g);
-        void _analyzeSwipe(const Leap::Gesture& g);
-        bool _isClockwise(Leap::CircleGesture& c) const;
+        void _analyzeCircle(const Gesture& g);
+        void _analyzeKeyTap(const Gesture& g);
+        void _analyzeScreenTap(const Gesture& g);
+        void _analyzeSwipe(const Gesture& g);
+        bool _isClockwise(CircleGesture& c) const;
         Counter* _counter;
     };
 }
