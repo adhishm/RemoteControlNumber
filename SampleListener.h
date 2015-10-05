@@ -24,12 +24,18 @@ namespace Leap
         : public Listener
     {
     public:
+        // Constructor
+        SampleListener();
+        // Destructor
+        virtual ~SampleListener();
+        
+        // Overriden virtual functions
         virtual void onConnect(const Controller& controller);
         virtual void onFrame(const Controller& controller);
         virtual void onDisconnect(const Controller& controller);
-        SampleListener();
-        virtual ~SampleListener();
+        
     private:
+        // Private functions
         void _displayFrameData(const Frame& f) const;
         void _analyzeGestures(const Frame& f);
         void _analyzeCircle(const Gesture& g);
